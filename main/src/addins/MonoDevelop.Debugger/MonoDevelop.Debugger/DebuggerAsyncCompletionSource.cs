@@ -42,9 +42,14 @@ using ObjectValueFlags = Mono.Debugging.Client.ObjectValueFlags;
 
 namespace MonoDevelop.Debugger
 {
+	static class DebuggerCompletion
+	{
+		public const string ContentType = "DebuggerCompletion";
+	}
+
 	[Export (typeof (IAsyncCompletionSourceProvider))]
 	[Name ("Debugger Completion Source Provider")]
-	[ContentType ("DebuggerCompletion")]
+	[ContentType (DebuggerCompletion.ContentType)]
 	sealed class DebuggerAsyncCompletionSourceProvider : IAsyncCompletionSourceProvider
 	{
 		public IAsyncCompletionSource GetOrCreate (ITextView textView)
@@ -113,7 +118,7 @@ namespace MonoDevelop.Debugger
 
 	[Export (typeof (IAsyncCompletionCommitManagerProvider))]
 	[Name ("Debugger Completion Commit Manager")]
-	[ContentType ("DebuggerCompletion")]
+	[ContentType (DebuggerCompletion.ContentType)]
 	sealed class DebuggerAsyncCompletionCommitManagerProvider : IAsyncCompletionCommitManagerProvider
 	{
 		public IAsyncCompletionCommitManager GetOrCreate (ITextView textView)

@@ -35,7 +35,7 @@ using Microsoft.VisualStudio.Language.Intellisense.AsyncCompletion;
 namespace MonoDevelop.Debugger
 {
 	[Name ("Debbugger Completion CommandHandler")]
-	[ContentType ("DebuggerCompletion")]
+	[ContentType (DebuggerCompletion.ContentType)]
 	[TextViewRole (PredefinedTextViewRoles.Interactive)]
 	[Export (typeof (ICommandHandler))]
 	[Order (After = PredefinedCompletionNames.CompletionCommandHandler)]

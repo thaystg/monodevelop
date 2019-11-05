@@ -46,8 +46,8 @@ namespace MonoDevelop.Debugger
 	class MacDebuggerObjectNameView : MacDebuggerObjectCellViewBase
 	{
 		[Export]
-		[Name ("DebuggerCompletion")]
 		[BaseDefinition ("text")]
+		[Name (DebuggerCompletion.ContentType)]
 		ContentTypeDefinition debuggerCompletionContentTypeDefinition;
 
 		readonly List<NSLayoutConstraint> constraints = new List<NSLayoutConstraint> ();
@@ -99,7 +99,7 @@ namespace MonoDevelop.Debugger
 			var contentTypeRegistry = CompositionManager.Instance.GetExportedValue<IContentTypeRegistryService> ();
 			textBufferFactory = CompositionManager.Instance.GetExportedValue<ITextBufferFactoryService> ();
 			var factory = CompositionManager.Instance.GetExportedValue<ICocoaTextEditorFactoryService> ();
-			contentType = contentTypeRegistry.GetContentType ("DebuggerCompletion");
+			contentType = contentTypeRegistry.GetContentType (DebuggerCompletion.ContentType);
 			var textBuffer = textBufferFactory.CreateTextBuffer ("", contentType);
 			editor = factory.CreateTextView (textBuffer);
 
