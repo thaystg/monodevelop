@@ -321,8 +321,6 @@ namespace Gtk
 					return false;
 				}
 
-				acceptsFirstResponderView.Window.MakeFirstResponder (acceptsFirstResponderView);
-
 				UpdateViewFrame ();
 
 				return base.OnFocusInEvent (evnt);
@@ -335,9 +333,6 @@ namespace Gtk
 		{
 			LogEnter ();
 			try {
-				if (view?.Window?.FirstResponder is NSView firstResponder &&
-					view?.AncestorSharedWithView (firstResponder) == view)
-					firstResponder.Window?.MakeFirstResponder (null);
 				return base.OnFocusOutEvent (evnt);
 			} finally {
 				LogExit ();
