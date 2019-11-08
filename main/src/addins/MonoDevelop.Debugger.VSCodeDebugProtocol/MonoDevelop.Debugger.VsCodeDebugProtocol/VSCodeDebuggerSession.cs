@@ -241,9 +241,15 @@ namespace MonoDevelop.Debugger.VsCodeDebugProtocol
 		}
 
 		protected abstract InitializeRequest CreateInitRequest ();
-		protected abstract LaunchRequest CreateLaunchRequest (DebuggerStartInfo startInfo);
+		protected virtual LaunchRequest CreateLaunchRequest (DebuggerStartInfo startInfo)
+		{
+			return null;
+		}
 		protected abstract AttachRequest CreateAttachRequest (long processId);
-		protected abstract string GetDebugAdapterPath ();
+		protected virtual string GetDebugAdapterPath ()
+		{
+			return "";
+		}
 
 		protected virtual string GetDebugAdapterArguments ()
 		{
